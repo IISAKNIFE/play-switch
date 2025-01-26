@@ -34,6 +34,7 @@ struct Vertex
 // Define the size of the memory block that will hold code
 #define CODEMEMSIZE (8 * 1024 * 1024)
 
+
 // Define the size of the memory block that will hold command lists
 #define CMDMEMSIZE (8 * 1024 * 1024)
 
