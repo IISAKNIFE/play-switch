@@ -32,10 +32,10 @@ struct Vertex
 //#define FB_HEIGHT 1080
 
 // Define the size of the memory block that will hold code
-#define CODEMEMSIZE (4 * 1024 * 1024)
+#define CODEMEMSIZE (8 * 1024 * 1024)
 
 // Define the size of the memory block that will hold command lists
-#define CMDMEMSIZE (4 * 1024 * 1024)
+#define CMDMEMSIZE (8 * 1024 * 1024)
 
 #define VERTEX_BUFFER_ENTRIES USHRT_MAX
 
