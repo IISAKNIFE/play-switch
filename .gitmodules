@@ -6,7 +6,7 @@
 	url = https://github.com/xerpi/play-switch-framework.git
 [submodule "deps/CodeGen"]
 	path = deps/CodeGen
-	url = https://github.com/xerpi/play-switch-codegen.git
+	url = https://github.com/shubshub/play-switch-codegen.git
 [submodule "deps/Nuanceur"]
 	path = deps/Nuanceur
 	url = https://github.com/jpd002/Nuanceur.git
