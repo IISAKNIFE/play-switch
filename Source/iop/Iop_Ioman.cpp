@@ -755,11 +755,14 @@ int32 CIoman::PreOpen(uint32 flags, const char* path)
 		auto pathInfo = SplitPath(path);
 		auto deviceIterator = m_devices.find(pathInfo.deviceName);
 		auto userDeviceIterator = m_userDevices.find(pathInfo.deviceName);
+		fprintf(stderr, "Attempting to PreOpen File");
 		if(deviceIterator != m_devices.end())
 		{
 			file.stream = deviceIterator->second->GetFile(flags, pathInfo.devicePath.c_str());
+			fprintf(stderr, "Populated File to Stream");
 			if(!file.stream)
 			{
+				fprintf(stderr, "File Stream Error");
 				throw FileNotFoundException();
 			}
 		}
@@ -773,6 +776,7 @@ int32 CIoman::PreOpen(uint32 flags, const char* path)
 			desc->privateData = 0;
 			desc->unit = 0;
 			desc->mode = flags;
+			fprintf(stderr, "Iterating Devices?");
 		}
 		else
 		{
@@ -783,7 +787,7 @@ int32 CIoman::PreOpen(uint32 flags, const char* path)
 	{
 		CLog::GetInstance().Warn(LOG_NAME, "%s: Error occurred while trying to open not existing file : %s\r\n", __FUNCTION__, path);
 		FreeFileHandle(handle);
-
+		fprintf(stderr, "%s: Error occurred while trying to open not existing file : %s\r\n", __FUNCTION__, path);
 		return -ERROR_ENOENT;
 	}
 	catch(const std::exception& except)
