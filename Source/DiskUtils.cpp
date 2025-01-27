@@ -181,7 +181,7 @@ DiskUtils::OpticalMediaPtr DiskUtils::CreateOpticalMediaFromPath(const fs::path&
 		}
 	}
 #endif
-fprintf(stderr, "Feeding Path to StdStream...\n");
+fprintf(stderr, "Feeding Path to StdStream... %s\n", imagePath);
 	//If it's null after all that, just feed it to a StdStream
 	if(!stream)
 	{
