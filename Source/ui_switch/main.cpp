@@ -15,6 +15,11 @@
 
 #include "PS2VM_Preferences.h"
 
+#include "PathUtils.h"
+#include "PtrStream.h"
+#include "MemStream.h"
+
+
 #define PLAY_PATH	"/switch/Play"
 #define DEFAULT_FILE "/switch/Play/test.elf"
 
