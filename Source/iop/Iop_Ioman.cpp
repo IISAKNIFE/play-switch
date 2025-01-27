@@ -1027,10 +1027,10 @@ Framework::CStream* CIoman::GetFileStream(uint32 handle)
 	fprintf(stderr, "File Stream Handle: %u\n", handle);
 	auto file(m_files.find(handle));
 	fprintf(stderr, "Getting File Stream\n");
-	/*if(file == std::end(m_files))
+	if(file == std::end(m_files))
 	{
 		throw std::runtime_error("Invalid file handle.");
-	}*/
+	}
 	return file->second.stream;
 }
 
