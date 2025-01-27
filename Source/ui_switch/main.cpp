@@ -90,13 +90,13 @@ int main(int argc, char** argv)
 
 	CAppConfig::GetInstance().SetPreferenceBoolean("log.showprints", true);
 
-	fprintf(stderror, "Starting new PS2 Virtual machine...\n");
+	fprintf(stderr, "Starting new PS2 Virtual machine...\n");
 	m_virtualMachine = new CPS2VM();
-	fprintf(stderror, "Initializing Virtual machine...\n");
+	fprintf(stderr, "Initializing Virtual machine...\n");
 	m_virtualMachine->Initialize();
-	fprintf(stderror, "Creating Pad Handler....\n");
+	fprintf(stderr, "Creating Pad Handler....\n");
 	m_virtualMachine->CreatePadHandler(CPH_Generic::GetFactoryFunction());
-	fprintf(stderror, "Creating GS Handler...\n");
+	fprintf(stderr, "Creating GS Handler...\n");
 	m_virtualMachine->CreateGSHandler(CGSH_Deko3d::GetFactoryFunction());
 	auto connection = m_virtualMachine->m_ee->m_os->OnRequestExit.Connect(
 	    [&executionOver]() {
