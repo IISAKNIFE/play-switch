@@ -15,6 +15,7 @@
 
 #include "PS2VM_Preferences.h"
 
+#define PLAY_PATH	"/switch/Play"
 #define DEFAULT_FILE "/switch/Play/test.elf"
 
 #define EXIT_COMBO (HidNpadButton_Plus | HidNpadButton_R)
@@ -43,6 +44,10 @@ int main(int argc, char** argv)
 	fs::path filePath;
 	PadState pad;
 	int i;
+
+	Framework::PathUtils::SetFilesDirPath(PLAY_PATH);
+	Framework::PathUtils::SetCacheDirPath(PLAY_PATH);
+
 
 	//consoleDebugInit(debugDevice_SVC);
 	//inet_aton("127.0.0.1", &__nxlink_host);
