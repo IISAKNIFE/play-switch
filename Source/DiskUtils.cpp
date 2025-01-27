@@ -196,11 +196,13 @@ DiskUtils::SystemConfigMap DiskUtils::ParseSystemConfigFile(Framework::CStream* 
 	fprintf(stderr, "Parsing System Config File\n");
 	SystemConfigMap result;
 	auto line = systemCnfFile->ReadLine();
+	fprintf(stderr, "Line: %s\n", line);
 	while(!systemCnfFile->IsEOF())
 	{
+		fprintf(stderr, "Iterating File... Line: %s\n", trimmedLine);
 		auto trimmedEnd = std::remove_if(line.begin(), line.end(), isspace);
 		auto trimmedLine = std::string(line.begin(), trimmedEnd);
-		fprintf(stderr, "Iterating File... Line: %s\n", trimmedLine);
+		
 		std::vector<std::string> components = StringUtils::Split(trimmedLine, '=', true);
 		if(components.size() >= 2)
 		{
