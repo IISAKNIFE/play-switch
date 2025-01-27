@@ -1023,6 +1023,7 @@ uint32 CIoman::GetFileMode(uint32 handle) const
 Framework::CStream* CIoman::GetFileStream(uint32 handle)
 {
 	auto file(m_files.find(handle));
+	fprintf(stderr, "Grabbing File Stream");
 	if(file == std::end(m_files))
 	{
 		throw std::runtime_error("Invalid file handle.");
