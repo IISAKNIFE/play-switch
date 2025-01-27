@@ -73,6 +73,7 @@ int main(int argc, char** argv)
 
 	if(IsBootableDiscImagePath(filePath))
 	{
+		fprintf(stderr, "Is Bootable Disc Image");
 		CAppConfig::GetInstance().SetPreferencePath(PREF_PS2_CDROM0_PATH, filePath);
 		CAppConfig::GetInstance().Save();
 	}
@@ -93,10 +94,12 @@ int main(int argc, char** argv)
 	{
 		if(IsBootableExecutablePath(filePath))
 		{
+			fprintf(stderr, "Booting ELF File\n");
 			m_virtualMachine->m_ee->m_os->BootFromFile(filePath);
 		}
 		else if(IsBootableDiscImagePath(filePath))
 		{
+			fprintf(stderr, "Booting CD ROM\n");
 			m_virtualMachine->m_ee->m_os->BootFromCDROM();
 		}
 	}
