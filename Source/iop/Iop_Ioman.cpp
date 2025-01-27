@@ -237,11 +237,13 @@ uint32 CIoman::Open(uint32 flags, const char* path)
 	CLog::GetInstance().Print(LOG_NAME, "Open(flags = 0x%08X, path = '%s');\r\n", flags, path);
 
 	int32 handle = PreOpen(flags, path);
+	fprintf(stderr, "Open Handle: %u", handle);
 	if(handle < 0)
 	{
 		return handle;
 	}
 
+	fprintf(stderr, "Asserting...");
 	assert(!IsUserDeviceFileHandle(handle));
 	return handle;
 }
@@ -1023,7 +1025,7 @@ uint32 CIoman::GetFileMode(uint32 handle) const
 Framework::CStream* CIoman::GetFileStream(uint32 handle)
 {
 	auto file(m_files.find(handle));
-	fprintf(stderr, "Grabbing File Stream");
+	fprintf(stderr, "Getting File Stream\n");
 	if(file == std::end(m_files))
 	{
 		throw std::runtime_error("Invalid file handle.");
