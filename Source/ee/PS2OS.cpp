@@ -344,15 +344,15 @@ void CPS2OS::BootFromCDROM()
 
 		{
 			Framework::CStream* file(ioman->GetFileStream(handle));
-			fprintf("Grabbing File Stream\n");
+			fprintf(stderr, "Grabbing File Stream\n");
 			auto systemConfig = DiskUtils::ParseSystemConfigFile(file);
-			fprintf("Parsing System Config\n");
+			fprintf(stderr,"Parsing System Config\n");
 			auto bootItemIterator = systemConfig.find("BOOT2");
-			fprintf("Finding BOOT2\n");
+			fprintf(stderr,"Finding BOOT2\n");
 			if(bootItemIterator != std::end(systemConfig))
 			{
 				executablePath = bootItemIterator->second;
-				fprintf("Setting Executable Path\n");
+				fprintf(stderr,"Setting Executable Path\n");
 			}
 		}
 
@@ -364,9 +364,9 @@ void CPS2OS::BootFromCDROM()
 		throw std::runtime_error("Error parsing 'SYSTEM.CNF' for a BOOT2 value.");
 	}
 
-	fprintf("Before Boot from Virtual Path\n");
+	fprintf(stderr,"Before Boot from Virtual Path\n");
 	BootFromVirtualPath(executablePath.c_str(), ArgumentList());
-	fprintf("After Boot from Virtual Path\n");
+	fprintf(stderr,"After Boot from Virtual Path\n");
 }
 
 CELF32* CPS2OS::GetELF()
