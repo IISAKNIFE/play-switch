@@ -792,6 +792,7 @@ int32 CIoman::PreOpen(uint32 flags, const char* path)
 
 		return -1;
 	}
+	fprintf("Returning Handle: %u\n", handle);
 	return handle;
 }
 
