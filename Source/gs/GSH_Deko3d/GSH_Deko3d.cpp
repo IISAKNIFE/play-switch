@@ -303,7 +303,7 @@ void CGSH_Deko3d::BeginFrame()
 	dkCmdBufPushConstants(g_cmdbuf, dkMemBlockGetGpuAddr(g_unifMemBlock), dkMemBlockGetSize(g_unifMemBlock),
 	                      0, sizeof(m_vertexParams.projMatrix), m_vertexParams.projMatrix);
 
-	g_vtxBufferHead = 0;
+	g_vtxBufferHead++;
 }
 
 void CGSH_Deko3d::EndFrame()
