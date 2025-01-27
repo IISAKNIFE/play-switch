@@ -51,6 +51,7 @@ int main(int argc, char** argv)
 	int i;
 
 	Framework::PathUtils::SetFilesDirPath(PLAY_PATH);
+	Framework::PathUtils::SetCacheDirPath(PLAY_PATH);
 
 
 	//consoleDebugInit(debugDevice_SVC);
