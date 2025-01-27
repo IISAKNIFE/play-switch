@@ -36,6 +36,7 @@ static std::unique_ptr<Framework::CStream> CreateImageStream(const fs::path& ima
 {
 	static const auto s3ImagePathPrefix = fs::path("//s3/").native();
 	auto imagePathString = imagePath.native();
+	fprintf(stderr, "Image Path: %s\n", imagePathString);
 	if(imagePathString.find(s3ImagePathPrefix) == 0)
 	{
 #ifdef HAS_AMAZON_S3
@@ -64,8 +65,10 @@ static std::unique_ptr<Framework::CStream> CreateImageStream(const fs::path& ima
 		return std::make_unique<Framework::CPosixFileStream>(imagePathString.c_str(), O_RDONLY);
 	}
 #elif defined(__EMSCRIPTEN__)
+fprintf(stderr, "Emscription Something");
 	return std::make_unique<CJsDiscImageDeviceStream>();
 #else
+fprintf(stderr, "Trying to make unique stream out of: %s\n", imagePathString.c_str());
 	return std::make_unique<Framework::CStdStream>(imagePathString.c_str(), Framework::GetInputStdStreamMode<fs::path::string_type>());
 #endif
 }
