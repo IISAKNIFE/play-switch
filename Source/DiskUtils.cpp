@@ -193,12 +193,14 @@ DiskUtils::OpticalMediaPtr DiskUtils::CreateOpticalMediaFromPath(const fs::path&
 
 DiskUtils::SystemConfigMap DiskUtils::ParseSystemConfigFile(Framework::CStream* systemCnfFile)
 {
+	fprintf(stderr, "Parsing System Config File\n");
 	SystemConfigMap result;
 	auto line = systemCnfFile->ReadLine();
 	while(!systemCnfFile->IsEOF())
 	{
 		auto trimmedEnd = std::remove_if(line.begin(), line.end(), isspace);
 		auto trimmedLine = std::string(line.begin(), trimmedEnd);
+		fprintf(stderr, "Iterating File... Line: %s\n", trimmedLine);
 		std::vector<std::string> components = StringUtils::Split(trimmedLine, '=', true);
 		if(components.size() >= 2)
 		{
