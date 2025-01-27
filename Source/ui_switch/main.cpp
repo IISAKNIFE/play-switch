@@ -92,7 +92,7 @@ int main(int argc, char** argv)
 
 	fprintf(stderror, "Starting new PS2 Virtual machine...\n");
 	m_virtualMachine = new CPS2VM();
-	fprintf(stderror, "Initializing Virtual machine...\n");)
+	fprintf(stderror, "Initializing Virtual machine...\n");
 	m_virtualMachine->Initialize();
 	fprintf(stderror, "Creating Pad Handler....\n");
 	m_virtualMachine->CreatePadHandler(CPH_Generic::GetFactoryFunction());
