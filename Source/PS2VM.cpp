@@ -818,6 +818,7 @@ void CPS2VM::CDROM0_SyncPath()
 	{
 		try
 		{
+			fprintf(stderror, "Creating Optical Media From Path: %s", path);
 			m_cdrom0 = DiskUtils::CreateOpticalMediaFromPath(path);
 			SetIopOpticalMedia(m_cdrom0.get());
 		}
