@@ -77,6 +77,8 @@ int main(int argc, char** argv)
 		CAppConfig::GetInstance().Save();
 	}
 
+	CAppConfig::GetInstance().SetPreferenceBoolean("log.showprints", true);
+
 	m_virtualMachine = new CPS2VM();
 	m_virtualMachine->Initialize();
 	m_virtualMachine->CreatePadHandler(CPH_Generic::GetFactoryFunction());

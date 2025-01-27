@@ -336,6 +336,7 @@ void CPS2OS::BootFromCDROM()
 
 	{
 		uint32 handle = ioman->Open(Iop::Ioman::CDevice::OPEN_FLAG_RDONLY, "cdrom0:SYSTEM.CNF");
+		fprintf(stderr, "Handle: %", handle);
 		if(static_cast<int32>(handle) < 0)
 		{
 			throw std::runtime_error("No 'SYSTEM.CNF' file found on the cdrom0 device.");
