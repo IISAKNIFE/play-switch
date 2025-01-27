@@ -120,6 +120,7 @@ CIoman::CIoman(CIopBios& bios, uint8* ram)
 		}
 		catch(...)
 		{
+			fprintf(stderr, "Error when doing something");
 			//Humm, some error occured when opening these files...
 		}
 	}
@@ -741,7 +742,9 @@ int32 CIoman::DevCtl(const char* deviceName, uint32 command, const uint32* input
 
 int32 CIoman::PreOpen(uint32 flags, const char* path)
 {
+	fprintf(stderr, "Preopening: Flags: %u, Path: %s\n", flags, path);
 	int32 handle = AllocateFileHandle();
+	fprintf(stderr, "Allocated File Handle: %i\n", handle);
 	try
 	{
 		auto& file = m_files[handle];
