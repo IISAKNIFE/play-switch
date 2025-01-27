@@ -237,7 +237,7 @@ uint32 CIoman::Open(uint32 flags, const char* path)
 	CLog::GetInstance().Print(LOG_NAME, "Open(flags = 0x%08X, path = '%s');\r\n", flags, path);
 
 	int32 handle = PreOpen(flags, path);
-	fprintf(stderr, "Open Handle: %u", handle);
+	fprintf(stderr, "Open Handle: %u\n", handle);
 	if(handle < 0)
 	{
 		return handle;
@@ -1024,6 +1024,8 @@ uint32 CIoman::GetFileMode(uint32 handle) const
 
 Framework::CStream* CIoman::GetFileStream(uint32 handle)
 {
+	fprintf(stderr, "File Stream Handle: %u", handle);
+	fprintf(stderr, "m_files: %s\n", m_files);
 	auto file(m_files.find(handle));
 	fprintf(stderr, "Getting File Stream\n");
 	if(file == std::end(m_files))
