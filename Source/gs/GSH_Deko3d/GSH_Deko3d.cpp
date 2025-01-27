@@ -860,22 +860,22 @@ void CGSH_Deko3d::WriteRegisterImpl(uint8 registerId, uint64 data)
 
 void CGSH_Deko3d::ProcessHostToLocalTransfer()
 {
-	//fprintf(stderr, "CGSH_Deko3d::ProcessHostToLocalTransfer()\n");
+	fprintf(stderr, "CGSH_Deko3d::ProcessHostToLocalTransfer()\n");
 }
 
 void CGSH_Deko3d::ProcessLocalToHostTransfer()
 {
-	//fprintf(stderr, "CGSH_Deko3d::ProcessLocalToHostTransfer()\n");
+	fprintf(stderr, "CGSH_Deko3d::ProcessLocalToHostTransfer()\n");
 }
 
 void CGSH_Deko3d::ProcessLocalToLocalTransfer()
 {
-	//fprintf(stderr, "CGSH_Deko3d::ProcessLocalToLocalTransfer()\n");
+	fprintf(stderr, "CGSH_Deko3d::ProcessLocalToLocalTransfer()\n");
 }
 
 void CGSH_Deko3d::ProcessClutTransfer(uint32, uint32)
 {
-	//fprintf(stderr, "CGSH_Deko3d::ProcessClutTransfer()\n");
+	fprintf(stderr, "CGSH_Deko3d::ProcessClutTransfer()\n");
 }
 
 CGSHandler::FactoryFunction CGSH_Deko3d::GetFactoryFunction()
