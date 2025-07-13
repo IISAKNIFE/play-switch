@@ -1,4 +1,4 @@
-# Play! #
+# Play! # 
 Play! is a PlayStation2 emulator for Windows, macOS, UNIX, Android, iOS & web browser platforms.
 
 Compatibility information is available on the official [Compatibility Tracker](https://github.com/jpd002/Play-Compatibility).
